@@ -8,14 +8,17 @@ module.exports = {
     // entry: './src/index.js',
     //rewrite the entry like this:
     entry: {
-        app: './src/index.js',
-        print: './src/print.js'   //it will generate the files called ~/dist/app.bundle.js and ~/dist/print.bundle.js
+        app: './src/index.js'
+        // print: './src/print.js'   //it will generate the files called ~/dist/app.bundle.js and ~/dist/print.bundle.js
     },
 
     //
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: './dist'
+        contentBase: './dist',
+        hot: true   //use the built-in HMR plugin
+        //or just use the CLI to modify the webpack-dev-server configuration with the following command:webpack-dev-server --hotOnly
+        
     },
 
     //manage the plugins

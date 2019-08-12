@@ -32,3 +32,12 @@ function component() {
   }
   
   document.body.appendChild(component());
+
+
+  //HMR, when a change inside print.js is detected we tell webpack to accet the updated moudle
+  if (module.hot) {
+    module.hot.accept('./print.js', function() {
+      console.log('Accepting the update printMe module!');
+      printMe();
+    })
+  }
